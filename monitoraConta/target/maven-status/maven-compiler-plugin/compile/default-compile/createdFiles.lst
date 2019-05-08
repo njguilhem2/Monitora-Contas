@@ -1,6 +1,4 @@
-br\com\monitora\conta\controller\LoginController.class
-br\com\monitora\conta\controller\ContaController.class
 br\com\monitora\conta\dao\ContaDao.class
 br\com\monitora\conta\modelo\Conta.class
-br\com\monitora\conta\dao\LoginDao.class
-br\com\monitora\conta\modelo\Login.class
+br\com\monitora\conta\controller\ContaController.class
+br\com\monitora\conta\controller\UsuarioController.class

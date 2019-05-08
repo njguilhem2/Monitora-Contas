@@ -3,6 +3,7 @@ package br.com.monitora.conta.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,30 +46,31 @@ public class ContaController {
 		return model;
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/removeConta")
 	@Transactional
-	public String remove(@PathVariable("id") Integer id) {
+	public String remove(Integer id) {
 		contaDao.delete(id);
 		return "redirect:/lista";
 	}
 
-	
-	//Tentei deste jeito,mas tmb ñ deu certo
-//	@GetMapping("/{id}/contas")
-//	@Transactional
-//	public ModelAndView altera(@PathVariable("id") Integer id) {
-//
-//		ModelAndView model = new ModelAndView("redirect:/contas/altera-contas");
-//		model.addObject("contas", contaDao.altera(id));
-//		return model;
-//	}
-	@GetMapping("/{id}/contas")
-	@Transactional
-	public ModelAndView altera(@PathVariable("id") Integer id) {
 
-		ModelAndView model = new ModelAndView("redirect:/contas/altera-contas");
-		model.addObject("contas", contaDao.findOne(id));
-		return model;
+	@GetMapping("/alteraConta")
+	public String edit(Integer id, Model model) {
+		model.addAttribute("conta",contaDao.findOne(id));
+		
+		return "/contas/altera-contas";
+		
+	} 
+	@PostMapping("/updateConta")
+	@Transactional
+	public ModelAndView listaAltera(Conta conta) {
+			ModelAndView model = new ModelAndView("redirect:/lista");
+			contaDao.alterar(conta);
+			return model;
+			
 	}
+	
+	
+ 
 
 }

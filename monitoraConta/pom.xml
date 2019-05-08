@@ -135,7 +135,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>ingresso</finalName>
+		<finalName>Contas</finalName>
 		<plugins>
 
 			<plugin>

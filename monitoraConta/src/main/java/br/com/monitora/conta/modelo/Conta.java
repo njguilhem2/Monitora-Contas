@@ -6,6 +6,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Conta {
+	
+	
 	@Id
 	@GeneratedValue
 	private Integer id;
