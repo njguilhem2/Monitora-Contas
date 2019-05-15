@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.com.monitora.conta.modelo.Conta;
@@ -14,7 +15,7 @@ public class ContaDao {
 	
 	@PersistenceContext
 	EntityManager manager;
-	private Conta conta;
+	
 
 	public void salva(Conta conta) {
 		manager.persist(conta);

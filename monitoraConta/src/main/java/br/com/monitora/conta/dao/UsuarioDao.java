@@ -1,34 +1,34 @@
 package br.com.monitora.conta.dao;
 
-import java.util.Optional;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.monitora.conta.modelo.Usuario;
 
-@Repository
 public class UsuarioDao {
 	@PersistenceContext
-	private EntityManager manager;
+	EntityManager manager;
+	@Autowired
+	Usuario usuario;
+	public boolean existeUsuario(Usuario usuario) {
 	
-	public Optional<Usuario> findByEmail(String email){
-		return manager
-				.createQuery("select u from Usuario u where u.email = :email",Usuario.class)
-				.setParameter("email",email)
-					.getResultList()
-					.stream()
-					.findFirst();
-	}
 
-	public void save(Usuario usuario) {
-		if(usuario.getId() == null) {
-			manager.persist(usuario);
-		}else {
-			manager.merge(usuario);
+		try {
+			System.out.println("Entrei");
+			 manager.createQuery("Select c from usuario where login = c and senha = c")
+			.setParameter(1, usuario.getLogin())
+			.setParameter(2, usuario.getSenha())
+			.getResultList();
+			 
+			 boolean encontrado = true;
+					
+			return encontrado;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 		
 	}
+
 }
