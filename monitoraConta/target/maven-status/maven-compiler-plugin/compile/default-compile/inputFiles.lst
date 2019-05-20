@@ -1,6 +1,3 @@
-C:\Java\monitoraConta\src\main\java\br\com\monitora\conta\controller\ContaController.java
-C:\Java\monitoraConta\src\main\java\br\com\monitora\conta\dao\UsuarioDao.java
-C:\Java\monitoraConta\src\main\java\br\com\monitora\conta\dao\ContaDao.java
-C:\Java\monitoraConta\src\main\java\br\com\monitora\conta\controller\LoginController.java
-C:\Java\monitoraConta\src\main\java\br\com\monitora\conta\modelo\Conta.java
-C:\Java\monitoraConta\src\main\java\br\com\monitora\conta\modelo\Usuario.java
+C:\Java\Monitora-Contas\monitoraConta\src\main\java\br\com\monitora\conta\controller\ContaController.java
+C:\Java\Monitora-Contas\monitoraConta\src\main\java\br\com\monitora\conta\dao\ContaDao.java
+C:\Java\Monitora-Contas\monitoraConta\src\main\java\br\com\monitora\conta\modelo\Conta.java

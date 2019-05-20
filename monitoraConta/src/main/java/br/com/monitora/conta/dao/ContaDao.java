@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import br.com.monitora.conta.modelo.Conta;
@@ -28,7 +27,7 @@ public class ContaDao {
 	}
 
 	public List<Conta> lista() {
-		return manager.createQuery("select c from Conta c", Conta.class).getResultList();
+		return manager.createQuery("select f from Conta f", Conta.class).getResultList();
 
 	}
 	

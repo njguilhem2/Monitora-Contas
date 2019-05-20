@@ -28,12 +28,7 @@ public class Conta {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	/**
-     * @deprecated hibernate only
-     */
-    public Conta() {
-
-    }
+	
 	public Integer getId() {
 		return id;
 	}
@@ -56,4 +51,10 @@ public class Conta {
 		this.valor = valor;
 	}
 	
+	/**
+     * @deprecated hibernate only
+     */
+    public Conta() {
+
+    }
 }
