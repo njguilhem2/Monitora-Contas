@@ -1,8 +1,16 @@
 package br.com.monitora.conta.modelo;
 
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Digits;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Conta {
@@ -11,9 +19,15 @@ public class Conta {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@NotEmpty
 	private String nome;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@NotEmpty
 	private String vencimento;
-	private double valor;
+	@Digits(integer=5, fraction=2)
+	@Column(name = "weight")
+	@NotEmpty
+	private BigDecimal valor;
 	private boolean pago;
 
 	public Conta(Integer id){
@@ -44,10 +58,10 @@ public class Conta {
 	public void setVencimento(String vencimento) {
 		this.vencimento = vencimento;
 	}
-	public double getValor() {
+	public BigDecimal getValor() {
 		return valor;
 	}
-	public void setValor(double valor) {
+	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 	

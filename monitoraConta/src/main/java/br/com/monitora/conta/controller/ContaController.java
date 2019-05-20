@@ -2,10 +2,13 @@ package br.com.monitora.conta.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,7 @@ public class ContaController {
 
 	@Autowired
 	private ContaDao contaDao;
+	
 
 	@RequestMapping("/")
 	public String index() {
@@ -33,7 +37,13 @@ public class ContaController {
 	
 	@PostMapping("contas/cadastraConta")
 	@Transactional
-	public ModelAndView grava(Conta conta) {
+	public ModelAndView grava(@Valid Conta conta,BindingResult result) {
+		
+		if(result.hasErrors()) {
+			ModelAndView retorna = new ModelAndView("redirect:/");
+			
+			return retorna;
+		} 
 		ModelAndView model = new ModelAndView("redirect:/lista");
 		contaDao.salva(conta);
 		return model;
